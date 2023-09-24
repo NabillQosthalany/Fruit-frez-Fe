@@ -1,0 +1,11 @@
+.rounded-bl-xl-left {
+  border-bottom-left-radius: 300px !important;
+  background-color: #4D2DB7 !important;
+}
+
+.btn-auth {
+  background-color: #4D2DB7 !important;
+  color: white !important;
+}
+
+/*# sourceMappingURL=login.css.map */
