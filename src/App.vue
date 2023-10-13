@@ -20,6 +20,7 @@ export default {
 }
 </script>
 <style>
+
 .v-application__wrap{
   background-color: #F2F2F2 !important;
 }

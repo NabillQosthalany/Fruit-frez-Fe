@@ -1,5 +1,14 @@
 <script setup>
 import InputField from "../../Input/InputField.vue";
+import {ref} from "vue";
+import {useProductStore} from "../../../store/product.js";
+
+const productStore = useProductStore()
+const postFruit = productStore.postFruit
+const emit = defineEmits(['save-post','close-dialog'])
+const props = defineProps(['editedText'])
+const savePost = () => emit('save-post',postFruit)
+const closeDialog = () => emit('close-dialog')
 </script>
 <template>
   <v-form @submit.prevent="savePost">
@@ -26,11 +35,11 @@ import InputField from "../../Input/InputField.vue";
           outlined
           small>
         <v-icon left></v-icon>
-        {{ buttonText }}
+        Close
       </v-btn>
       <v-btn color="light-green darken-4" dark type="submit" outlined small>
-        <v-icon left>{{ buttonText }}</v-icon>
-        {{saveDialog}}
+        <v-icon left>mdi-file</v-icon>
+        {{ editedText }}
       </v-btn>
     </v-card-actions>
   </v-form>

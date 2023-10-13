@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar/Sidebar.vue";
 import Navbar from "../components/Navbar/Navbar.vue";
 import Barchart from "../components/Chart/Barchart.vue";
 import axios from "axios";
-import Card from "../components/Card/Card.vue";
+import CardStock from "../components/Overview/Card/CardStock.vue";
 
 const sidebarOpen = ref(true)
 const priceItemCard = ref([
@@ -15,7 +15,7 @@ const priceItemCard = ref([
 const toggleSidebar = () => {
   sidebarOpen.value = !sidebarOpen.value
 }
-const totalProduct = ref(null)
+const totalProduct = ref([])
 onMounted(()=>{
   const token = localStorage.getItem('token')
   axios.get('http://localhost:4000/products/total-stock',{
@@ -39,7 +39,8 @@ onMounted(()=>{
       <Navbar :sidebarOpen="sidebarOpen" @toggle-sidebar="toggleSidebar"/>
       <v-row class="ml-2">
         <v-col cols="3">
-         <Card product-name="Total Product" :total-product="totalProduct" />
+          <CardStock subtitle="Total Stock Product" img="../src/assets/images/Item-Stock.png" :text="totalProduct"/>
+          <CardStock subtitle="Total Stock Product" img="../src/assets/images/Item-Stock.png" :text="totalProduct"/>
         </v-col>
         <v-col cols="9" class="pb-0">
           <v-card class="rounded-lg"
@@ -61,21 +62,6 @@ onMounted(()=>{
               <v-card-subtitle class="text-subtitle-2">Sold as product : 299 Product</v-card-subtitle>
             </v-card>
           </v-card>
-        </v-col>
-        <v-col cols="3" class="pb-0">
-          <div class="amount-card">
-            <v-row>
-              <v-col v-for="(item,index) in priceItemCard" :key="index" cols="12">
-                <v-card width="250" height="150" class="mb-12 rounded-lg d-flex flex-column align-start">
-                  <div class="d-flex justify-between align-center mt-3">
-                    <v-card-subtitle class="mr-2">{{ item.subtitle }}</v-card-subtitle>
-                    <v-img width="35" :src="item.img"/>
-                  </div>
-                  <v-card-text class="mt-4 text-h5 font-weight-bold">{{ item.text }}</v-card-text>
-                </v-card>
-              </v-col>
-            </v-row>
-          </div>
         </v-col>
         <v-col cols="12" class="pt-0">
           <v-card class="rounded-lg">

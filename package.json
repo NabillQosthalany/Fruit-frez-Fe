@@ -15,6 +15,7 @@
     "pinia": "^2.1.6",
     "roboto-fontface": "*",
     "sweetalert2": "^11.7.28",
+    "typeface-poppins": "^1.1.13",
     "vue": "^3.3.4",
     "vue-chartjs": "^5.2.0",
     "vue-router": "^4.2.4",

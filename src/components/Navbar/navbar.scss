@@ -1,12 +1,9 @@
-@use "../src/assets/scss/font/font" as font;
 
 .dashboard-text {
   h1 {
     color: #514D4D;
-    font-family: font.$primary-font !important;
   }
   p{
     color: #514D4D;
-    font-family: font.$primary-font !important;
   }
 }
